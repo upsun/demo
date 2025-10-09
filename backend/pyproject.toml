@@ -8,6 +8,7 @@ dependencies = [
     "async-timeout==4.0.3",
     "black==24.4.0",
     "blackfire>=1.20.33",
+    "blackfire_conprof>=1.2.5",
     "blinker==1.7.0",
     "boolean-py==4.0",
     "cachecontrol==0.13.1",

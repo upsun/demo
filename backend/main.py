@@ -49,6 +49,16 @@ app = create_app()
 CORS(app)
 
 if __name__ == "__main__":
+    try:
+        from blackfire_conprof.profiler import Profiler
+
+        # application_name will be auto-populated via PLATFORM_APPLICATION_NAME/BLACKFIRE_CONPROF_APP_NAME
+        # profiler.stop() will be called on app exit by default
+        profiler = Profiler()
+        profiler.start()
+    except Exception as err:
+        print(err)
+
     flask_environment = os.environ.get("FLASK_ENV", "local")
     enable_debug = flask_environment != "production"
     web_port = os.environ.get("PORT", 8000)
