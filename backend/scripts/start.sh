@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-uv run gunicorn main:app
+uv run blackfire-python gunicorn main:app
