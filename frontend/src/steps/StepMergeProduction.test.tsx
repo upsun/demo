@@ -11,7 +11,7 @@ describe("<StepMergeProduction />", () => {
       />,
     );
     expect(
-      screen.getByText("4. Merge changes into production & scale up"),
+      screen.getByText("5. Merge changes into production & scale up"),
     ).toBeInTheDocument();
   });
 
