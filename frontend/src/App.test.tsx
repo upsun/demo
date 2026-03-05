@@ -100,7 +100,7 @@ describe("<App />", () => {
     });
   });
 
-  it("highlights create preview environment step when in production and session_storage is file", async () => {
+  it("highlights local workflow setup step when in production and session_storage is file", async () => {
     const mockData = {
       type: "production",
       session_storage: "file",
@@ -113,7 +113,13 @@ describe("<App />", () => {
     expect(await screen.findByTestId("step-deploy")).toHaveClass("is-disabled");
 
     await waitFor(() =>
-      expect(screen.getByTestId("step-branch")).not.toHaveClass("is-disabled"),
+      expect(screen.getByTestId("step-local-workflow")).not.toHaveClass(
+        "is-disabled",
+      ),
+    );
+
+    expect(await screen.findByTestId("step-branch")).not.toHaveClass(
+      "is-disabled",
     );
 
     expect(await screen.findByTestId("step-redis")).toHaveClass("is-disabled");
@@ -140,8 +146,12 @@ describe("<App />", () => {
     expect(await screen.findByTestId("step-deploy")).toHaveClass("is-disabled");
 
     await waitFor(() =>
-      expect(screen.getByTestId("step-branch")).toHaveClass("is-disabled"),
+      expect(screen.getByTestId("step-local-workflow")).toHaveClass(
+        "is-disabled",
+      ),
     );
+
+    expect(await screen.findByTestId("step-branch")).toHaveClass("is-disabled");
 
     expect(await screen.findByTestId("step-redis")).not.toHaveClass(
       "is-disabled",
@@ -169,6 +179,12 @@ describe("<App />", () => {
     render(<App />);
 
     expect(await screen.findByTestId("step-deploy")).toHaveClass("is-disabled");
+
+    await waitFor(() =>
+      expect(screen.getByTestId("step-local-workflow")).toHaveClass(
+        "is-disabled",
+      ),
+    );
 
     await waitFor(() =>
       expect(screen.getByTestId("step-branch")).toHaveClass("is-disabled"),
@@ -200,6 +216,12 @@ describe("<App />", () => {
     render(<App />);
 
     expect(await screen.findByTestId("step-deploy")).toHaveClass("is-disabled");
+
+    await waitFor(() =>
+      expect(screen.getByTestId("step-local-workflow")).toHaveClass(
+        "is-disabled",
+      ),
+    );
 
     await waitFor(() =>
       expect(screen.getByTestId("step-branch")).toHaveClass("is-disabled"),

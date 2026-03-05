@@ -5,7 +5,7 @@ describe("<StepBranch />", () => {
   it("renders with correct title", () => {
     render(<StepBranch isDisabled={false} />);
     expect(
-      screen.getByText("2. Create your first preview environment"),
+      screen.getByText("3. Create your first preview environment"),
     ).toBeInTheDocument();
   });
 

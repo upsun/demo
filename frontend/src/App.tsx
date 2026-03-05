@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar";
 import commands from "./commands.json";
 import EnvironmentIntroduction from "./components/EnvironmentIntroduction";
 import StepDeploy from "./steps/StepDeploy";
+import StepLocalWorkflow from "./steps/StepLocalWorkflow";
 import StepBranch from "./steps/StepBranch";
 import StepRedis from "./steps/StepRedis";
 import StepMergeProduction from "./steps/StepMergeProduction";
@@ -107,7 +108,8 @@ function App() {
 
               <div className="pt-8 flex flex-col gap-2">
                 <StepDeploy />
-                <StepBranch isDisabled={currentStep !== "branch"} />
+                <StepLocalWorkflow isDisabled={currentStep !== "setup"} />
+                <StepBranch isDisabled={currentStep !== "setup"} />
                 <StepRedis
                   isDisabled={currentStep !== "redis"}
                   hideContent={currentStepProgress < 2}
