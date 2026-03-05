@@ -60,9 +60,7 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
             <CodeExample
               wrapLines
               copyText={commands["merge_production"].user.resources_set}
-              codeExampleText={
-                commands["merge_production"].user.resources_set
-              }
+              codeExampleText={commands["merge_production"].user.resources_set}
             />
           </li>
           <li>
