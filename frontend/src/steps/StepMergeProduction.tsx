@@ -68,7 +68,7 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
               <strong>Set it and forget it with Autoscaling</strong>
             </p>
             <p className="mb-2">
-              Want to stay ahead of traffic? You can also{" "}
+              Want to stay ahead of traffic? You can{" "}
               <a
                 href="https://docs.upsun.com/manage-resources/autoscaling.html"
                 target="_blank"
