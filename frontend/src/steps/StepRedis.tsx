@@ -18,7 +18,7 @@ const StepRedis: React.FC<StepRedisProps> = ({
   environment,
 }) => {
   const servicesText = `###############################################################
-# Step 3: Add a service. Uncomment this section.
+# Step 4: Add a service. Uncomment this section.
 ###############################################################
         relationships:
             redis_session: "redis_service:redis"
@@ -32,7 +32,7 @@ services:
     <FeatureStep
       data-testid="step-redis"
       icon={<RedisIcon className="w-10 h-10" />}
-      title="3. Add Redis to staging"
+      title="4. Add Redis to staging"
       isDisabled={isDisabled}
       hideContent={hideContent}
     >

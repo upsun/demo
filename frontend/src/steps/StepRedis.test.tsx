@@ -20,7 +20,7 @@ describe("<StepRedis />", () => {
       />,
     );
     expect(
-      await screen.findByText("3. Add Redis to staging"),
+      await screen.findByText("4. Add Redis to staging"),
     ).toBeInTheDocument();
   });
 

@@ -78,7 +78,7 @@ applications:
 
 # #add_service_start
 # ######################################################################################################################
-# # Step 3: Add a service. Uncomment this section.
+# # Step 4: Add a service. Uncomment this section.
 # ######################################################################################################################
 #         relationships:
 #             redis_session: "redis_service:redis"
