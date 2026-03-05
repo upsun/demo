@@ -53,9 +53,10 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
             </p>
             <p className="mb-2">
               Upsun gives you total control. You can{" "}
-              <strong>scale up or down anytime</strong> via the CLI or the UI to
-              meet your specific needs. Use this command to horizontally scale
-              your backend and vertically scale your services:
+              <strong>scale up or down anytime</strong> via the CLI or the
+              Console to meet your specific needs. Use this command to
+              horizontally scale your backend and vertically scale your
+              services:
             </p>
             <CodeExample
               wrapLines

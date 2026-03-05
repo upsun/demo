@@ -40,9 +40,9 @@ const StepLocalWorkflow: React.FC<StepLocalWorkflowProps> = ({
           <strong>
             Everything you see in the Console can be managed via the CLI.
           </strong>{" "}
-          While the UI is great for a bird's-eye view, the CLI is built to live
-          where you do, in the terminal, making it the fastest way to branch,
-          test, and deploy without leaving your code.
+          While the Console (UI) is great for a bird's-eye view, the CLI is
+          built to live where you do, in the terminal, making it the fastest way
+          to branch, test, and deploy without leaving your code.
         </p>
         <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
