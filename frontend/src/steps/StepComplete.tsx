@@ -17,7 +17,7 @@ const StepComplete: React.FC<StepCompleteProps> = ({
     <FeatureStep
       data-testid="step-complete"
       icon={<DoneIcon className="w-10 h-10 p-1" />}
-      title="5. You did it!"
+      title="6. You did it!"
       isDisabled={isDisabled}
       hideBorder
       hideContent={hideContent}
@@ -63,9 +63,6 @@ const StepComplete: React.FC<StepCompleteProps> = ({
             >
               Migrate your application
             </a>
-          </li>
-          <li className="mt-2">
-            Share your thoughts and connect with us on Discord.
           </li>
           <li className="mt-2">
             Explore Upsun's{" "}

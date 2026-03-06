@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchEnvironment } from "../utility/api";
 
 type Step =
+  | "setup"
   | "branch"
   | "redis"
   | "merge-production"
@@ -64,7 +65,7 @@ export function useEnvironmentSteps(debugEnabled: boolean) {
 
     switch (true) {
       case sessionStorageType === "file" && envLower === "production":
-        setCurrentStep("branch");
+        setCurrentStep("setup");
         setCurrentStepProgress(1);
         scrollToRef(welcomeMessage);
         break;

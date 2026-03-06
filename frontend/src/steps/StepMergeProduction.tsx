@@ -19,54 +19,68 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
     <FeatureStep
       data-testid="step-merge-production"
       icon={<MergeIcon className="w-10 h-10" />}
-      title="4. Merge changes into production & scale up"
+      title="5. Merge changes into production & scale up"
       isDisabled={isDisabled}
       hideContent={hideContent}
     >
       <>
         <p className="mb-2">
-          {environment?.toLocaleLowerCase() === "production" ? (
-            <>Awesome! Your changes are live.</>
-          ) : (
-            <>
-              Awesome! Your changes are live in{" "}
-              {environment?.toLocaleLowerCase()}.
-            </>
-          )}
+          Awesome! Your changes are live in{" "}
+          <code className="px-1">{environment?.toLocaleLowerCase()}</code>.
         </p>
         <p className="mb-2">
-          {environment?.toLocaleLowerCase() === "production"
-            ? "Use your preview environments to stage future updates."
-            : "Use this or other preview environments to stage future updates."}
+          Now it's time to merge the new Redis service into your production
+          environment and ensure your app can handle any traffic spike.
         </p>
         <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
           <li>
             <p className="mb-2">
               <span>Deploy staging changes to production</span>
-              <CodeExample
-                copyText={commands["merge_production"].user.merge}
-                codeExampleText={commands["merge_production"].user.merge}
-              />
             </p>
+            <p className="mb-2">
+              Push your infrastructure and code changes to the live environment
+              in one go.
+            </p>
+            <CodeExample
+              copyText={`${commands["merge_production"].user.merge} ${environment?.toLocaleLowerCase()}`}
+              codeExampleText={`${commands["merge_production"].user.merge} ${environment?.toLocaleLowerCase()}`}
+            />
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>
-                Now, use <code className="px-1">resources:set</code> with
-                <code className="px-1">--count backend:2</code> to horizontally
-                scale the backend app, and{" "}
-                <code className="px-1">--size redis_service:0.5</code> to
-                vertically scale the <code className="px-1">redis_service</code>{" "}
-                service.
-              </span>
-              <CodeExample
-                wrapLines
-                copyText={commands["merge_production"].user.resources_set}
-                codeExampleText={
-                  commands["merge_production"].user.resources_set
-                }
-              />
+              <strong>Optimize your resources</strong>
+            </p>
+            <p className="mb-2">
+              Upsun gives you total control. You can{" "}
+              <strong>scale up or down anytime</strong> via the CLI or the
+              Console to meet your specific needs. Use this command to
+              horizontally scale your backend and vertically scale your
+              services:
+            </p>
+            <CodeExample
+              wrapLines
+              copyText={commands["merge_production"].user.resources_set}
+              codeExampleText={commands["merge_production"].user.resources_set}
+            />
+          </li>
+          <li>
+            <p className="mb-2 mt-2">
+              <strong>Set it and forget it with Autoscaling</strong>
+            </p>
+            <p className="mb-2">
+              Want to stay ahead of traffic? You can{" "}
+              <a
+                href="https://docs.upsun.com/manage-resources/autoscaling.html"
+                target="_blank"
+                rel="noreferrer"
+                className="underline"
+              >
+                configure autoscaling
+              </a>{" "}
+              to let Upsun automatically adjust resources for you, ensuring your
+              applications always perform at their best without manual
+              intervention.
             </p>
           </li>
           <li>

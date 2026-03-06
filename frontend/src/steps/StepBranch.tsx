@@ -13,7 +13,7 @@ const StepBranch: React.FC<StepBranchProps> = ({ isDisabled }) => {
     <FeatureStep
       data-testid="step-branch"
       icon={<BranchIcon className="w-10 h-10 p-1" />}
-      title="2. Create your first preview environment"
+      title="3. Create your first preview environment"
       isDisabled={isDisabled}
     >
       <>

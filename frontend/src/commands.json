@@ -5,6 +5,14 @@
       "get_logs": "upsun environment:log"
     }
   },
+  "setup": {
+    "user": {
+      "install_homebrew": "brew install platformsh/tap/upsun-cli",
+      "install_shell": "curl -fsSL https://raw.githubusercontent.com/platformsh/cli/main/installer.sh | VENDOR=upsun bash",
+      "install_scoop": "scoop bucket add platformsh https://github.com/platformsh/homebrew-tap.git\nscoop install upsun",
+      "link": "upsun project:get"
+    }
+  },
   "first_deploy": {
     "user": {
       "clone": "git clone git@github.com:platformsh/demo-project.git",
@@ -38,7 +46,7 @@
   },
   "merge_production": {
     "user": {
-      "merge": "upsun merge staging",
+      "merge": "upsun merge",
       "resources_set": "upsun resources:set \\\n\t--count backend:2 \\\n\t--size redis_service:0.5 \\\n\t--disk backend:512,frontend:512 \\\n\t-e main",
       "get_url": "upsun url --primary -e main"
     },
