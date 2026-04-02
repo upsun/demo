@@ -37,7 +37,8 @@
   },
   "redis": {
     "user": {
-      "commit": "git commit -am \"Create a Redis service.\"",
+      "commit": "git commit -am \"Add Redis service\"",
+      "service_list": "upsun service:list -e staging",
       "push": "upsun push"
     },
     "test": {

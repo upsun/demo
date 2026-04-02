@@ -32,68 +32,85 @@ services:
     <FeatureStep
       data-testid="step-redis"
       icon={<RedisIcon className="w-10 h-10" />}
-      title="4. Add Redis to staging"
+      title="4. Add Redis to Staging"
       isDisabled={isDisabled}
       hideContent={hideContent}
     >
       <>
         <p className="mb-2">
-          Great! Your preview environment{" "}
-          {environment?.toLocaleLowerCase() === "production" ? (
-            ""
-          ) : (
-            <code className="px-1">staging</code>
-          )}{" "}
-          is live and mirrors your production setup.
+          Great! Your <code className="px-1">staging</code> environment is live
+          and is a complete, isolated copy of your production setup. You can now
+          test changes, add services, and debug without any risk to your main
+          site.
         </p>
         <p className="mb-2">
-          We'll use this preview environment as a sandbox to stage the addition
-          of a Redis service. Once happy, we'll commit the changes using{" "}
-          <code className="px-1">git</code> and then merge it into production.
+          Because Upsun uses Infrastructure as Code, you just need to update a
+          configuration file to provision the new service. Then, commit the
+          changes and merge them into production.
         </p>
-        <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
           <li>
             <p className="mb-2">
-              Create the relationship. Open{" "}
+              <span className="font-semibold">Update your configuration</span>
+            </p>
+            <p className="mb-2">
+              Open{" "}
               <CopyButton
                 className="inline-block"
                 copyText=".upsun/config.yaml"
               >
                 <code className="px-2">.upsun/config.yaml</code>
               </CopyButton>{" "}
-              and uncomment the following lines
+              and uncomment lines 83–88 to define the Redis service and its
+              relationship to your app.
             </p>
             <div className="mb-2 code-block">
               <CodeBlock
                 text={servicesText}
                 language="yaml"
                 showLineNumbers
-                startingLineNumber={79}
+                startingLineNumber={83}
               />
             </div>
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>Commit</span>
-              <CodeExample
-                copyText={commands.redis.user.commit}
-                codeExampleText={commands.redis.user.commit}
-              />
+              <span className="font-semibold">Commit the change</span>
             </p>
+            <p className="mb-2">
+              Save the file and commit it to your local Git history:
+            </p>
+            <CodeExample
+              copyText={commands.redis.user.commit}
+              codeExampleText={commands.redis.user.commit}
+            />
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>Push</span>
-              <CodeExample
-                copyText={commands.redis.user.push}
-                codeExampleText={commands.redis.user.push}
-              />
+              <span className="font-semibold">
+                Deploy to the staging environment
+              </span>
             </p>
+            <p className="mb-2">
+              By pushing this change, Upsun instantly provisions a Redis
+              container in your staging environment.
+            </p>
+            <CodeExample
+              copyText={commands.redis.user.push}
+              codeExampleText={commands.redis.user.push}
+            />
+            <p className="mb-2 mt-2">
+              <span className="font-semibold">Verify the push:</span> To see
+              your new Redis container active in the staging environment, run:
+            </p>
+            <CodeExample
+              copyText={commands.redis.user.service_list}
+              codeExampleText={commands.redis.user.service_list}
+            />
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>Refresh this page when done.</span>
+              Refresh this page after the push is complete.
             </p>
           </li>
         </ol>
