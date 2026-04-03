@@ -18,32 +18,34 @@ const StepBranch: React.FC<StepBranchProps> = ({ isDisabled }) => {
     >
       <>
         <p className="mb-2">
-          With Upsun, you can clone any environment to get a byte-for-byte copy
-          to use for staging, features, and bug fixes.
+          You can branch any environment to instantly create a byte-for-byte
+          replica of the stack (including code, database, and files) to safely
+          test changes, features, and bug fixes.
         </p>
         <p className="mb-2">
-          Before you make your first revision, let's create a new preview
-          environment called <strong>Staging</strong>.
+          Before you make your first revision, create a preview environment
+          called <strong>Staging</strong>.
         </p>
-        <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
           <li>
             <p className="mb-2 mt-2">
-              <span>Create environment</span>
-              <CodeExample
-                copyText={commands.branch.user.branch}
-                codeExampleText={commands.branch.user.branch}
-              />
+              <span className="font-semibold">Create an environment</span>
             </p>
+            <CodeExample
+              copyText={commands.branch.user.branch}
+              codeExampleText={commands.branch.user.branch}
+            />
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>Once deployed, open the environment in browser</span>
-              <CodeExample
-                copyText={commands.branch.user.get_url}
-                codeExampleText={commands.branch.user.get_url}
-              />
+              <span className="font-semibold">
+                When deployment is complete, open it in a browser
+              </span>
             </p>
+            <CodeExample
+              copyText={commands.branch.user.get_url}
+              codeExampleText={commands.branch.user.get_url}
+            />
           </li>
         </ol>
       </>

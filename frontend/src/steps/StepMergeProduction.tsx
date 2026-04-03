@@ -19,44 +19,47 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
     <FeatureStep
       data-testid="step-merge-production"
       icon={<MergeIcon className="w-10 h-10" />}
-      title="5. Merge changes into production & scale up"
+      title="5. Merge changes into production and scale up"
       isDisabled={isDisabled}
       hideContent={hideContent}
     >
       <>
         <p className="mb-2">
-          Awesome! Your changes are live in{" "}
-          <code className="px-1">{environment?.toLocaleLowerCase()}</code>.
+          Your changes move from staging to production in seconds. With Upsun,
+          your code and infrastructure updates happen in a single, atomic
+          operation—meaning zero downtime and zero surprises.
         </p>
-        <p className="mb-2">
-          Now it's time to merge the new Redis service into your production
-          environment and ensure your app can handle any traffic spike.
-        </p>
-        <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
           <li>
             <p className="mb-2">
-              <span>Deploy staging changes to production</span>
+              <span className="font-semibold">Go live</span>
             </p>
             <p className="mb-2">
-              Push your infrastructure and code changes to the live environment
-              in one go.
+              Merge your staging environment into the main production
+              environment. This syncs your code and provisions the new Redis
+              service in production instantly.
             </p>
             <CodeExample
               copyText={`${commands["merge_production"].user.merge} ${environment?.toLocaleLowerCase()}`}
               codeExampleText={`${commands["merge_production"].user.merge} ${environment?.toLocaleLowerCase()}`}
             />
+            <p className="mb-2 mt-2">
+              <span className="font-semibold">Verify the merge:</span> To see
+              your new Redis container active in the production environment, run:
+            </p>
+            <CodeExample
+              copyText={commands["merge_production"].user.service_list}
+              codeExampleText={commands["merge_production"].user.service_list}
+            />
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <strong>Optimize your resources</strong>
+              <span className="font-semibold">Scale your resources instantly</span>
             </p>
             <p className="mb-2">
-              Upsun gives you total control. You can{" "}
-              <strong>scale up or down anytime</strong> via the CLI or the
-              Console to meet your specific needs. Use this command to
-              horizontally scale your backend and vertically scale your
-              services:
+              Adjust your horizontal and vertical scaling in a single step.
+              Upsun updates your resources on the fly without taking your
+              application offline.
             </p>
             <CodeExample
               wrapLines
@@ -66,10 +69,10 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <strong>Set it and forget it with Autoscaling</strong>
+              <span className="font-semibold">Autoscaling: Set it and forget it</span>
             </p>
             <p className="mb-2">
-              Want to stay ahead of traffic? You can{" "}
+              Want to automate resource adjustments? You can{" "}
               <a
                 href="https://docs.upsun.com/manage-resources/autoscaling.html"
                 target="_blank"
@@ -78,19 +81,22 @@ const StepMergeProduction: React.FC<StepMergeProductionProps> = ({
               >
                 configure autoscaling
               </a>{" "}
-              to let Upsun automatically adjust resources for you, ensuring your
-              applications always perform at their best without manual
-              intervention.
+              to let Upsun handle adjustments for you based on real-time
+              traffic.
             </p>
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <span>Open the production frontend in your browser</span>
-              <CodeExample
-                copyText={commands["merge_production"].user.get_url}
-                codeExampleText={commands["merge_production"].user.get_url}
-              />
+              <span className="font-semibold">View your scaled production app</span>
             </p>
+            <p className="mb-2">
+              While your app's front end looks the same for this demo, your
+              infrastructure just grew. Return to the demo app frontend:
+            </p>
+            <CodeExample
+              copyText={commands["merge_production"].user.get_url}
+              codeExampleText={commands["merge_production"].user.get_url}
+            />
           </li>
         </ol>
       </>

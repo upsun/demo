@@ -37,21 +37,17 @@ const StepLocalWorkflow: React.FC<StepLocalWorkflowProps> = ({
     >
       <>
         <p className="mb-2">
-          <strong>
-            Everything you see in the Console can be managed via the CLI.
-          </strong>{" "}
-          While the Console (UI) is great for a bird's-eye view, the CLI is
-          built to live where you do, in the terminal, making it the fastest way
-          to branch, test, and deploy without leaving your code.
+          Next, you'll connect to your new Upsun project. See how the CLI
+          brings the Console's power right to your terminal: you can branch,
+          test, and deploy without ever leaving your code.
         </p>
-        <h4 className="mt-5 text-lg font-semibold">Next Step</h4>
         <ol className="list-decimal list-outside ml-4 mt-2">
           <li>
             <p className="mb-2 mt-2">
-              <strong>Install the Upsun CLI</strong>
+              <span className="font-semibold">Install the Upsun CLI</span>
             </p>
             <p className="mb-2">
-              Choose your package manager to get the toolset on your machine.
+              Select your package manager to get the toolset:
             </p>
             <div className="flex flex-row gap-2 mb-2">
               {tabs.map((tab) => (
@@ -76,12 +72,11 @@ const StepLocalWorkflow: React.FC<StepLocalWorkflowProps> = ({
           </li>
           <li>
             <p className="mb-2 mt-2">
-              <strong>Link your project</strong>
+              <span className="font-semibold">Link to your Upsun project</span>
             </p>
             <p className="mb-2">
-              Run this to authenticate and download a local copy of your code.
-              This command connects your local environment directly to the cloud
-              project you just created.
+              Run this command to authenticate and connect with the project you
+              just created.
             </p>
             <CodeExample
               copyText={`${commands.setup.user.link} ${PROJECT_ID}`}

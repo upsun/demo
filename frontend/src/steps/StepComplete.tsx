@@ -1,8 +1,6 @@
 import React from "react";
 import FeatureStep from "../components/FeatureStep";
 import { ReactComponent as DoneIcon } from "../assets/utility/done.svg";
-import commands from "../commands.json";
-import CodeExample from "../components/CodeExample";
 
 interface StepCompleteProps {
   isDisabled: boolean;
@@ -23,57 +21,70 @@ const StepComplete: React.FC<StepCompleteProps> = ({
       hideContent={hideContent}
     >
       <>
-        <p className="mb-2 mt-2 font-bold">
-          🎉 Kudos! You've aced the Upsun Demo!
-        </p>
+        <h4 className="mb-2 mt-2 text-lg font-semibold">
+          Ready for Your Next Project
+        </h4>
         <p className="mb-2">
-          You've just experienced the power of Upsun's Git-based workflow to
-          stage and deploy Redis seamlessly.
+          You've seen the core Upsun workflow: Git-driven infrastructure,
+          instant staging environments, and on-the-fly scaling. Now, see how to
+          take your next project further.
         </p>
-        <p className="mb-2 mt-5">
-          <span>
-            You've used the Upsun CLI to merge a new service into production and
-            to match the resources you worked with in staging to that
-            environment. From here, you can{" "}
-            <strong>scale those resources</strong> to whatever you need. For
-            example, at this moment your production Redis service has 0.5 CPU.
-            You can scale down the amount of resources on the production Redis
-            service container with the following command:
-          </span>
-          <CodeExample
-            wrapLines
-            copyText={commands["scale"].user.resources_set}
-            codeExampleText={commands["scale"].user.resources_set}
-          />
-        </p>
-        <p className="mb-2 mt-5">
-          <span>Delete this project when ready using:</span>
-          <CodeExample
-            copyText={commands.complete.user.delete_project}
-            codeExampleText={commands.complete.user.delete_project}
-          />
-        </p>
-        <h4 className="mt-5 text-lg font-semibold">What's next?</h4>
-        <ul className="list-disc list-outside ml-8 mt-2">
+        <h4 className="mt-5 text-lg font-semibold">What's Next?</h4>
+        <ul className="list-disc list-outside ml-8 mt-2 space-y-2">
           <li>
-            <a
-              href="https://docs.upsun.com/get-started/here.html"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Migrate your application
-            </a>
+            <strong>Deep Performance Insights:</strong> Every Upsun project
+            includes Blackfire, using built-in profiling and monitoring to show
+            how your code performs.
           </li>
-          <li className="mt-2">
-            Explore Upsun's{" "}
-            <a href="https://docs.upsun.com/manage-resources.html#horizontal-scaling">
-              horizontal scalability features
-            </a>
-            .
+          <li>
+            <strong>Automate Everything:</strong> Use Cron jobs to schedule
+            tasks directly in your{" "}
+            <code className="px-1">.upsun/config.yaml</code> with the same ease
+            you used to add Redis.
+          </li>
+          <li>
+            <strong>Flexible Workflows:</strong> Connect your own CI/CD or use
+            our API to automate environment creation for every pull request.
+          </li>
+          <li>
+            <strong>AI-Assisted Onboarding:</strong> Use the AI Configuration
+            Generator to analyze your code and automatically suggest the best{" "}
+            <code className="px-1">.upsun/config.yaml</code> setup for your
+            next project.
+          </li>
+          <li>
+            <strong>Vector-Ready Infrastructure:</strong> Deploy GenAI and RAG
+            apps instantly by provisioning managed services like Chroma, Qdrant,
+            or PostgreSQL with pgvector.
+          </li>
+          <li>
+            <strong>Conversational Ops:</strong> Connect Upsun to your favorite
+            AI assistant via our MCP server to query logs, check status, or
+            trigger deployments using natural language.
           </li>
         </ul>
-        <p className="mb-2 mt-4 font-semibold">
-          Welcome to the Upsun Community!
+        <p className="mb-2 mt-5 font-semibold">Ready to build?</p>
+        <div className="flex flex-row gap-3 mb-5">
+          <a
+            href="https://console.upsun.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2 bg-upsun-violet-600 text-white rounded hover:bg-upsun-violet-700 transition-colors text-sm font-medium"
+          >
+            Start your next project
+          </a>
+          <a
+            href="https://docs.upsun.com"
+            target="_blank"
+            rel="noreferrer"
+            className="px-4 py-2 bg-upsun-black-900 text-white rounded hover:bg-upsun-black-800 transition-colors text-sm font-medium"
+          >
+            Explore the Docs
+          </a>
+        </div>
+        <p className="mb-2 text-sm text-gray-400">
+          If you're finished with this demo, you can remove it anytime with{" "}
+          <code className="px-1">upsun project:delete</code>.
         </p>
       </>
     </FeatureStep>
